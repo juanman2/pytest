@@ -7,8 +7,11 @@ from datetime import datetime
 import uuid
 import json
 
-class SimpleApiException:
-        pass
+class SimpleApiException(Exception):
+    reason = ""
+    def __init__(self, reason):
+        self.reason = reason
+        
 
 class SimpleApi:
     db = {}
@@ -19,7 +22,7 @@ class SimpleApi:
         if v is None:
             return
         if not isinstance(v, str):
-            raise SimpleApiException("Invalid Type: {:}".format(v))
+            raise SimpleApiException("Invalid Type: {:} expected string".format(v))
         else:
             self.v1=v
 
@@ -27,7 +30,7 @@ class SimpleApi:
         if v is None:
             return
         if not isinstance(v, float):
-            raise SimpleApiException("Invalid Type: {:}".format(v))
+            raise SimpleApiException("Invalid Type: {:} expected float".format(v))
         else:
             self.v2=v
 
@@ -35,7 +38,7 @@ class SimpleApi:
         if v is None:
             return
         if not isinstance(v, bool):
-            raise SimpleApiException("Invalid Type: {:}".format(v))
+            raise SimpleApiException("Invalid Type: {:} expected bool".format(v))
         else:
             self.v3=v
 
