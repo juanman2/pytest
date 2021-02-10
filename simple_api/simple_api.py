@@ -44,9 +44,6 @@ class SimpleApi:
 
     def create(self, v1=None, v2=None, v3=None):
 
-        if jo is None:
-            raise SimpleApiException
-        
         sw = dict()
         self.set_v1(v1)
         self.set_v2(v2)
