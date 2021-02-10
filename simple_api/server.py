@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#
+# SKELETON ... this is not working yet!  
+#
 """
 Very simple HTTP server in python for logging requests
 Usage::
